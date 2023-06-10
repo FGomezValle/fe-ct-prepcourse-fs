@@ -1,20 +1,64 @@
-/*⚠️ NO MODIFIQUES EL NOMBRE DE LAS DECLARACIONES ⚠️*/
+// /*⚠️ NO MODIFIQUES EL NOMBRE DE LAS DECLARACIONES ⚠️*/
 
 function deObjetoAarray(objeto) {
-   // Recibes un objeto. Tendrás que crear un arreglo de arreglos.
-   // Cada elemento del arreglo padre será un nuevo arreglo que contendrá dos elementos.
-   // Estos elementos debe ser cada par clave:valor del objeto recibido.
-   // [EJEMPLO]: {D: 1, B: 2, C: 3} ---> [['D', 1], ['B', 2], ['C', 3]].
-   // Tu código:
+//    // Recibes un objeto. Tendrás que crear un arreglo de arreglos.
+//    // Cada elemento del arreglo padre será un nuevo arreglo que contendrá dos elementos.
+//    // Estos elementos debe ser cada par clave:valor del objeto recibido.
+//    // [EJEMPLO]: {D: 1, B: 2, C: 3} ---> [['D', 1], ['B', 2], ['C', 3]].
+//    // Tu código:
+   const claves = Object.keys(objeto);
+   const valores = Object.values(objeto);
+
+   let arrayPadre = [];
+
+   for (let i = 0; i < claves.length; i++) {
+      arrayPadre.push([claves[i], valores[i]]);
+   }
+   return arrayPadre;
 }
 
+//  let resultado = deObjetoAarray({ nombre:"tefy", apellido : "gomez", edad: 28});
+//  console.log(resultado);
+
+
 function numberOfCharacters(string) {
-   // La función recibe un string. Debes recorrerlo y retornar un objeto donde cada propiedad es una de las
-   // letras del string, y su valor es la cantidad de veces que se repite en el string.
-   // Las letras deben estar en orden alfabético.
-   // [EJEMPLO]: "adsjfdsfsfjsdjfhacabcsbajda" ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
-   // Tu código:
+//    // La función recibe un string. Debes recorrerlo y retornar un objeto donde cada propiedad es una de las
+//    // letras del string, y su valor es la cantidad de veces que se repite en el string.
+//    // Las letras deben estar en orden alfabético.
+//    // [EJEMPLO]: "adsjfdsfsfjsdjfhacabcsbajda" ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
+//    // Tu código:
+
+   var array = string.split("");
+   array.sort();
+   console.log(array);
+   var objeto = {};
+
+   for (let i = 0; i < array.length; i++) {
+      var propiedad = array[i];
+      var valor = cantidadOcurrencias(string, array[i]);
+      objeto[propiedad] = valor;
+   }
+   return objeto;
 }
+
+function cantidadOcurrencias(cadena, letra) {
+   let contador = 0;
+   var array = cadena.split("");
+   for (let i = 0; i < array.length; i++) {
+      if(letra == array[i]) {
+         contador++;
+      }
+   }
+   return contador;
+}
+
+// var res = cantidadOcurrencias("jsdhfkjasdfkjahsdfkhasdfkjhasdfkj", "j");
+// console.log(res);
+
+
+let resultado = numberOfCharacters("adsjfdsfsfjsdjfhacabcsbajda");
+console.log(resultado);
+
 
 function capToFront(string) {
    // Recibes un string con algunas letras en mayúscula y otras en minúscula.
@@ -22,7 +66,11 @@ function capToFront(string) {
    // Retornar el string.
    // [EJEMPLO]: soyHENRY ---> HENRYsoy
    // Tu código:
+
+
 }
+
+
 
 function asAmirror(frase) {
    // Recibes una frase. Tu tarea es retornar un nuevo string en el que el orden de las palabras sea el mismo.
@@ -60,14 +108,14 @@ function buscoInterseccion(array1, array2) {
    // Tu código:
 }
 
-/*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
-module.exports = {
-   deObjetoAarray,
-   numberOfCharacters,
-   capToFront,
-   asAmirror,
-   capicua,
-   deleteAbc,
-   sortArray,
-   buscoInterseccion,
-};
+// /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
+// module.exports = {
+//    deObjetoAarray,
+//    numberOfCharacters,
+//    capToFront,
+//    asAmirror,
+//    capicua,
+//    deleteAbc,
+//    sortArray,
+//    buscoInterseccion,
+// };
